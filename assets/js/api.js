@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'https://umel-rotc-attendance.onrender.com/api';
 
 // Cadet API calls
 const cadetAPI = {
