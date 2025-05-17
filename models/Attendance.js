@@ -26,7 +26,7 @@ class Attendance {
     static async create(attendanceData) {
         const { cadet_id, date, status } = attendanceData;
         const [result] = await db.query(
-            'INSERT INTO attendance (cadet_id, date, status) VALUES (?, ?, ?)',
+            'INSERT IGNORE INTO attendance (cadet_id, date, status) VALUES (?, ?, ?)',
             [cadet_id, date, status]
         );
         return result;

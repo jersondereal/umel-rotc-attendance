@@ -64,12 +64,14 @@ const attendanceAPI = {
     },
 
     create: async (attendanceData) => {
+        console.log(attendanceData);
         const response = await fetch(`${API_BASE_URL}/attendance`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(attendanceData)
         });
-        if (!response.ok) throw new Error('Failed to create attendance record');
+        console.log(response);
+        if (!response.ok) throw new Error('Failed to create attendance record...:', response);
         return response.json();
     },
 

@@ -302,11 +302,17 @@ async function handleAddCadetFormSubmit(e) {
         const today = formatToPHTManual(new Date());
         
         // Create attendance record for today
-        await attendanceAPI.create({
-            cadet_id: cadetData.id,
-            date: today,
-            status: 'absent'
-        });
+        try {
+            await attendanceAPI.create({
+                cadet_id: cadetData.id,  // Use the original ID from cadetData
+                date: today,
+                status: 'absent'
+            });
+        } catch (attendanceError) {
+            console.error('Failed to create attendance record:', attendanceError);
+            // Continue with success message even if attendance creation fails
+            // This prevents the entire operation from failing
+        }
         
         showToast('Cadet added successfully');
         await handleDateChange(); // Refresh the display

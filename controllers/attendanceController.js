@@ -60,7 +60,7 @@ exports.create = async (req, res) => {
             stack: error.stack,
             timestamp: new Date().toISOString()
         });
-        res.status(500).json({ message: 'Failed to create attendance record' });
+        res.status(500).json({ message: 'Failed to create attendance record..' });
     }
 };
 
